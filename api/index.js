@@ -56,6 +56,8 @@ app.use('/v1/auth', auth)
 // Set up server error responses middleware
 app.use(errorHandler)
 
+console.log('call to api/index.js')
+
 module.exports = {
     path: '/api',
     handler: app
