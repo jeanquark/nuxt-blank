@@ -116,6 +116,16 @@ jobs:
                   SOURCE: './node_modules'
                   TARGET: '/home/jelastic/ROOT/'
                   ARGS: '-rltgoDzvO'
+            - name: 🐢 Deploy package.json file to ROOT directory
+              uses: easingthemes/ssh-deploy@v2.1.5
+              env:
+                  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+                  REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+                  REMOTE_USER: ${{ secrets.SERVER_USERNAME }}
+                  REMOTE_PORT: 3022
+                  SOURCE: './package.json'
+                  TARGET: '/home/jelastic/ROOT/'
+                  ARGS: '-rltgoDzvO'
             - name: Set env name
               id: env_name
               run: echo ::set-output name=value::nuxtblank
